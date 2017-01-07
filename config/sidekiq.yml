@@ -1,0 +1,18 @@
+---
+:verbose: false
+:concurrency: 2
+
+:timeout: 8
+
+:queues:
+  - [mobile_push_messages, 4]
+  - [critical, 3]
+  - [default, 2]
+  - [low, 1]
+
+development:
+  :verbose: true
+  :logfile: ./log/sidekiq.log
+
+production:
+  :concurrency: <%= ENV['REDIS_SERVER_SIZE'] || 2 %>

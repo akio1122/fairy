@@ -1,0 +1,610 @@
+{
+  "appointments#leave_feedback": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/appointments/616/leave_feedback",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "appointment": {
+          "feedback_sentiment": "bad"
+        }
+      },
+      "response_data": {
+        "errors": "You already left feedback for this appointment"
+      },
+      "code": "422",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/appointments/617/leave_feedback",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "appointment": {
+          "feedback_sentiment": "good"
+        }
+      },
+      "response_data": {
+        "message": "Appointment with ID:617 successfully updated."
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/appointments/618/leave_feedback",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "appointment": {
+          "feedback_sentiment": "bad",
+          "feedback_for_housekeeper": "Bad feedback to housekeeper",
+          "feedback_for_fairy": "Bad feedback to fairy",
+          "rating_category_from_customer": "Test Category"
+        }
+      },
+      "response_data": {
+        "message": "Appointment with ID:618 successfully updated."
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/appointments/619/leave_feedback",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "appointment": {
+          "feedback_sentiment": "good",
+          "tip_in_cents": "100"
+        }
+      },
+      "response_data": {
+        "message": "Appointment with ID:619 successfully updated."
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "housekeepers#ping": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/housekeepers/57/ping",
+      "versions": [
+        "housekeepers_api"
+      ],
+      "query": null,
+      "request_data": {
+        "lat": "40.70376543626901",
+        "lng": "-34.163899861007565",
+        "connectivity_type": "WIFI",
+        "battery_level": "16.77"
+      },
+      "response_data": null,
+      "code": "204",
+      "recorded": true,
+      "show_in_doc": 1
+    }
+  ],
+  "extra_appointments#check_availability": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/extra_appointments/14/check_availability",
+      "versions": [
+        "housekeepers_api"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "minutes_walking_between_buildings": 0,
+        "scheduled_at": "2016-11-04T08:09:31.991-07:00",
+        "is_available": true,
+        "message": "This appointment easily fits into your Friday schedule!",
+        "code": 200
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "extra_appointments#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/extra_appointments",
+      "versions": [
+
+      ],
+      "query": "date_from=04-11-2016&date_to=06-11-2016",
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 13,
+          "general_notes": null,
+          "scheduled_at": "2016-11-06T08:09:25.904-08:00",
+          "customer": {
+            "id": 26,
+            "name": "Sandrine Effertz"
+          },
+          "notes_from_customer": null,
+          "cleaning_time": 30,
+          "is_picked_up": false,
+          "checklist_tasks": [
+
+          ],
+          "address": {
+            "id": 13,
+            "zip": "63974",
+            "address": "913.4984967985555 Connie Fords",
+            "suite": "Suite 372",
+            "lat": null,
+            "lng": null,
+            "building_id": 13,
+            "building_name": "Flatley-Aufderhar"
+          }
+        }
+      ],
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "extra_appointments#pick_up": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/extra_appointments/15/pick_up",
+      "versions": [
+        "housekeepers_api"
+      ],
+      "query": "scheduled_at=2016-11-05+08%3A09%3A32+-0700",
+      "request_data": null,
+      "response_data": {
+        "message": "Appointment successfully picked up",
+        "code": 200
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/messages/8420",
+      "versions": [
+
+      ],
+      "query": "label=conversation&message=tst-msg",
+      "request_data": null,
+      "response_data": [
+        {
+          "last_message": {
+            "id": 185,
+            "body": "tst-msg",
+            "sender_id": 8419,
+            "label": "conversation",
+            "is_read": true,
+            "created_at": "2016-10-25T08:26:27.208-07:00"
+          },
+          "recipient": {
+            "id": 8420,
+            "name": "Ernie Gulgowski",
+            "address": null,
+            "avatar": "https://s3-us-west-2.amazonaws.com/itsfairy/no-user-image.png"
+          }
+        }
+      ],
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#send_message": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8420",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 184,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8420,
+        "created_at": "2016-10-25T08:26:27.153-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8420",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 185,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8420,
+        "created_at": "2016-10-25T08:26:27.208-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8422",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 186,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8422,
+        "created_at": "2016-10-25T08:26:27.307-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8422",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 187,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8422,
+        "created_at": "2016-10-25T08:26:27.324-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8424",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 188,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8424,
+        "created_at": "2016-10-25T08:26:27.420-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8424",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 189,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8424,
+        "created_at": "2016-10-25T08:26:27.436-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8424",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 190,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8424,
+        "created_at": "2016-10-25T08:26:27.451-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8426",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 191,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8426,
+        "created_at": "2016-10-25T08:26:27.535-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8426",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "message": "tst-msg",
+        "label": "conversation"
+      },
+      "response_data": {
+        "id": 192,
+        "content": "tst-msg",
+        "label": "conversation",
+        "recipient_id": 8426,
+        "created_at": "2016-10-25T08:26:27.549-07:00",
+        "is_read": false,
+        "metadata": {
+        }
+      },
+      "code": "201",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#show": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/messages/8422",
+      "versions": [
+
+      ],
+      "query": "label=conversation&message=tst-msg",
+      "request_data": null,
+      "response_data": {
+        "id": "c2a42a4cd55c738d3587dedf42b397b2",
+        "created_at": "2016-10-25T08:26:27.324-07:00",
+        "recipient": {
+          "id": 8422,
+          "name": "Lura Ferry",
+          "address": null,
+          "avatar": "https://s3-us-west-2.amazonaws.com/itsfairy/no-user-image.png"
+        },
+        "messages": [
+          {
+            "id": 187,
+            "body": "tst-msg",
+            "sender_id": 8421,
+            "label": "conversation",
+            "address": null,
+            "avatar": "https://s3-us-west-2.amazonaws.com/itsfairy/no-user-image.png",
+            "is_read": true,
+            "created_at": "2016-10-25T08:26:27.324-07:00"
+          },
+          {
+            "id": 186,
+            "body": "tst-msg",
+            "sender_id": 8421,
+            "label": "conversation",
+            "address": null,
+            "avatar": "https://s3-us-west-2.amazonaws.com/itsfairy/no-user-image.png",
+            "is_read": true,
+            "created_at": "2016-10-25T08:26:27.307-07:00"
+          }
+        ]
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#update": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/hk/messages/8426",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "last_message_id": "191"
+      },
+      "response_data": null,
+      "code": "204",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "my_customers#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/my_customers",
+      "versions": [
+        "housekeepers_api"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "current_customers": [
+          {
+            "id": 835,
+            "name": "Freeda Koelpin",
+            "address": "1351.772255196043 Francisca Streets, 27523, Apt. 672"
+          }
+        ],
+        "job_requests": [
+          {
+            "id": 836,
+            "name": "Maxie Von",
+            "address": "3428.8865326852842 Waelchi Causeway, 30290, Suite 335",
+            "is_viewed": false,
+            "created_at": "2016-10-26T06:56:43.469-07:00"
+          }
+        ],
+        "ended_customers": [
+          {
+            "id": 837,
+            "name": "Cedrick Olson",
+            "address": "4080.450655550604 Bartoletti Stream, 74055-3042, Suite 191"
+          }
+        ],
+        "paused_customers": [
+          {
+            "id": 838,
+            "name": "Adrian Barrows",
+            "address": "3746.72029211022 Witting Rapid, 58342-2053, Apt. 256"
+          }
+        ]
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "my_customers#profile": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/my_customers/842/profile",
+      "versions": [
+        "housekeepers_api"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "id": 842,
+        "primary_match_id": 188,
+        "name": "Lenna Lindgren",
+        "address": "3197.740634853909 Eichmann Lodge, 24540, Suite 629",
+        "next_appointment": null,
+        "has_new_messages": false,
+        "has_new_ratings": false,
+        "service_duration": 30,
+        "plan": "Custom Plan",
+        "cleaning_stats": {
+          "done": 0,
+          "skipped": 0,
+          "dropped": 0
+        },
+        "total_earnings": 0,
+        "service_ended_at": "2016-10-26T06:56:44.138-07:00"
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "my_customers#show_primary_match": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/hk/my_customers/846/job_request",
+      "versions": [
+        "housekeepers_api"
+      ],
+      "query": "",
+      "request_data": null,
+      "response_data": {
+        "id": 191,
+        "plan": "Custom Plan",
+        "preferred_times": {
+          "date": "2016-09-26T06:56:40.747-07:00",
+          "start_time": null,
+          "end_time": null
+        },
+        "message": null,
+        "lat": null,
+        "lng": null
+      },
+      "code": "200",
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}
